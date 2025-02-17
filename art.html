@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Artwork - Circle</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+        canvas {
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="artworkCanvas" width="400" height="400"></canvas>
+
+<script>
+    // Get the canvas element and context for drawing
+    const canvas = document.getElementById("artworkCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Set up the drawing styles
+    ctx.fillStyle = "linear-gradient(to bottom, #ff7e5f, #feb47b)";
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 5;
+
+    // Draw a circle
+    ctx.beginPath();
+ctx.arc(200, 200, 100, 0, Math.PI * 2, false);  // x, y, radius, start angle, end angle
+    ctx.fillStyle = "yellow";  // Inside color of the circle
+    ctx.fill();  // Fill the circle
+    ctx.stroke();  // Outline the circle
+
+    // Draw another smaller circle inside (creating a layered effect)
+    ctx.beginPath();
+    ctx.arc(200, 200, 60, 0, Math.PI * 2, false);
+    ctx.fillStyle = "blue";  // Inside color of the smaller circle
+    ctx.fill();
+    ctx.stroke();
+
+    // Optionally, add text on the canvas
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "#333";
+    ctx.fillText("HTML Artwork", 120, 50);  // Add some text
+</script>
+
+</body>
+</html>
